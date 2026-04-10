@@ -1,19 +1,19 @@
 /* ============================================ */
-/* VARIABLES GLOBALES (COLORES Y FUENTES)       */
+/* VARIABLES GLOBALES                           */
 /* ============================================ */
 :root {
-    --electric-blue: #0052FF;      /* Azul eléctrico principal */
-    --electric-blue-dark: #0039B3;  /* Azul más oscuro para hover */
-    --black: #0A0A0A;               /* Negro puro para contraste */
-    --white: #FFFFFF;               /* Fondo blanco minimalista */
-    --gray-light: #F5F7FA;          /* Gris muy claro para secciones alternas */
-    --gray-mid: #E4E7EC;            /* Gris para bordes y separadores */
-    --text-dark: #1A1F36;           /* Color de texto principal */
-    --text-gray: #5A6A7F;           /* Color de texto secundario */
+    --electric-blue: #0052FF;
+    --electric-blue-dark: #0039B3;
+    --black: #0A0A0A;
+    --white: #FFFFFF;
+    --gray-light: #F5F7FA;
+    --gray-mid: #E4E7EC;
+    --text-dark: #1A1F36;
+    --text-gray: #5A6A7F;
 }
 
 /* ============================================ */
-/* RESET Y ESTILOS BASE                         */
+/* RESET Y BASE                                 */
 /* ============================================ */
 * {
     margin: 0;
@@ -26,12 +26,9 @@ body {
     background-color: var(--white);
     color: var(--text-dark);
     line-height: 1.5;
-    scroll-behavior: smooth;  /* Desplazamiento suave nativo */
+    scroll-behavior: smooth;
 }
 
-/* ============================================ */
-/* CONTENEDOR PRINCIPAL (RESPONSIVE)            */
-/* ============================================ */
 .container {
     max-width: 1280px;
     margin: 0 auto;
@@ -39,15 +36,15 @@ body {
 }
 
 /* ============================================ */
-/* BOTONES REUTILIZABLES                        */
+/* BOTONES                                      */
 /* ============================================ */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding: 14px 32px;
-    border-radius: 100px;      /* Bordes redondeados tipo pill */
+    padding: 14px 28px;
+    border-radius: 100px;
     font-weight: 600;
     font-size: 1rem;
     transition: all 0.25s ease;
@@ -57,11 +54,20 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-/* Botón primario (fondo azul eléctrico, texto blanco) */
 .btn-primary {
     background-color: var(--electric-blue);
     color: var(--white);
     box-shadow: 0 2px 8px rgba(0, 82, 255, 0.2);
+}
+
+.btn-primary {
+    color: #FFFFFF !important;
+}
+
+.btn-primary i,
+.btn-primary .fab,
+.btn-primary .fas {
+    color: #FFFFFF !important;
 }
 
 .btn-primary:hover {
@@ -70,42 +76,38 @@ body {
     box-shadow: 0 8px 20px rgba(0, 82, 255, 0.3);
 }
 
-/* Botón "Contáctanos" específico del header */
-/* Fondo completamente azul, texto blanco */
 .btn-outline {
-    background-color: var(--electric-blue);  /* Fondo azul */
-    border: none;                            /* Sin borde */
-    color: #FFFFFF !important;               /* Texto BLANCO forzado */
-    font-weight: 600;
-    transition: all 0.25s ease;
+    background-color: transparent;
+    border: 1.5px solid var(--electric-blue);
+    color: var(--electric-blue);
 }
 
-/* Animación suave al pasar el cursor sobre "Contáctanos" */
 .btn-outline:hover {
-    background-color: var(--electric-blue-dark);  /* Azul más oscuro */
-    transform: scale(1.05);                       /* Crece ligeramente */
-    box-shadow: 0 8px 20px rgba(0, 82, 255, 0.3); /* Sombra azul */
-    color: #FFFFFF !important;                    /* Mantiene texto blanco */
+    background-color: var(--electric-blue);
+    color: var(--white);
 }
 
-/* Botón grande para CTA principal */
+.btn-small {
+    padding: 8px 20px;
+    font-size: 0.85rem;
+}
+
 .btn-large {
-    padding: 16px 42px;
+    padding: 16px 36px;
     font-size: 1.1rem;
 }
 
 /* ============================================ */
-/* HEADER Y NAVEGACIÓN (STICKY)                 */
+/* HEADER                                       */
 /* ============================================ */
 .header {
-    padding: 24px 0;
+    padding: 16px 0;
     border-bottom: 1px solid var(--gray-mid);
-    background-color: var(--white);
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
     position: sticky;
     top: 0;
     z-index: 99;
-    backdrop-filter: blur(8px);    /* Efecto vidrio sutil */
-    background-color: rgba(255, 255, 255, 0.95);
 }
 
 .nav {
@@ -113,13 +115,21 @@ body {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    gap: 20px;
 }
 
-/* Enlaces del menú */
+.logo img {
+    max-width: 160px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 .nav-links {
     display: flex;
     gap: 32px;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .nav-links a {
@@ -134,10 +144,10 @@ body {
 }
 
 /* ============================================ */
-/* SECCIÓN HERO (PRIMERA IMPRESIÓN)             */
+/* HERO - ETAPA 1: CONCIENCIA                   */
 /* ============================================ */
 .hero {
-    padding: 80px 0 64px;
+    padding: 60px 0 80px;
 }
 
 .hero-grid {
@@ -147,12 +157,25 @@ body {
     align-items: center;
 }
 
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #E8F0FE;
+    color: var(--electric-blue);
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
 .hero-content h1 {
-    font-size: 3.2rem;
-    font-weight: 700;
+    font-size: 3rem;
+    font-weight: 800;
     line-height: 1.2;
     letter-spacing: -0.02em;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 .hero-highlight {
@@ -161,38 +184,141 @@ body {
 }
 
 .hero-sub {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--text-gray);
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+.hero-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
     margin-bottom: 32px;
+}
+
+.hero-features span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+.hero-features i {
+    color: var(--electric-blue);
+    font-size: 1rem;
 }
 
 .hero-buttons {
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
+    margin-bottom: 32px;
+}
+
+.hero-trust {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--gray-mid);
+}
+
+.hero-trust i {
+    font-size: 1.2rem;
+    color: var(--electric-blue);
+}
+
+.hero-trust span {
+    font-size: 0.85rem;
+    color: var(--text-gray);
 }
 
 .hero-image img {
     width: 100%;
     border-radius: 24px;
     box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
-    object-fit: cover;
-    height: auto;
 }
 
 /* ============================================ */
-/* SECCIÓN SERVICIOS (TARJETAS)                 */
+/* MENSAJE PARA EMPRENDEDORES                   */
+/* ============================================ */
+.message-for-you {
+    padding: 40px 0;
+    background-color: var(--gray-light);
+}
+
+.message-card {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    border: 1px solid var(--gray-mid);
+}
+
+.message-icon {
+    margin-bottom: 20px;
+}
+
+.message-icon i {
+    font-size: 3rem;
+    color: var(--electric-blue);
+    opacity: 0.5;
+}
+
+.message-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.message-card p {
+    max-width: 700px;
+    margin: 0 auto 24px;
+    color: var(--text-gray);
+    line-height: 1.6;
+}
+
+.message-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+}
+
+.message-tags span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--gray-light);
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    color: var(--text-dark);
+}
+
+.message-tags i {
+    color: var(--electric-blue);
+}
+
+/* ============================================ */
+/* SERVICIOS - ETAPA 3: DESEO                   */
 /* ============================================ */
 .services {
     padding: 80px 0;
-    background-color: var(--gray-light);  /* Fondo gris claro para diferenciar */
+    background-color: var(--white);
 }
 
 .section-title {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     font-weight: 700;
     margin-bottom: 16px;
+}
+
+.accent {
+    color: var(--electric-blue);
 }
 
 .section-sub {
@@ -203,14 +329,12 @@ body {
     font-size: 1.1rem;
 }
 
-/* Grid responsivo de 3 columnas */
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 32px;
 }
 
-/* Tarjeta individual de servicio */
 .service-card {
     background: var(--white);
     border-radius: 24px;
@@ -233,104 +357,235 @@ body {
 }
 
 .service-card h3 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     margin-bottom: 16px;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .service-card p {
     color: var(--text-gray);
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+.service-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--electric-blue);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: gap 0.2s;
+}
+
+.service-cta:hover {
+    gap: 12px;
 }
 
 /* ============================================ */
-/* SECCIÓN PROMESA (POR QUÉ ELEGIRNOS)          */
+/* CÓMO FUNCIONA                                */
 /* ============================================ */
-.promise {
+.how-it-works {
     padding: 80px 0;
+    background-color: var(--gray-light);
 }
 
-.promise-grid {
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 32px;
+    margin: 48px 0;
+}
+
+.step-card {
+    text-align: center;
+    padding: 32px 20px;
+    background: var(--white);
+    border-radius: 24px;
+    transition: all 0.3s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
+}
+
+.step-number {
+    width: 56px;
+    height: 56px;
+    background: var(--electric-blue);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0 auto 20px auto;
+}
+
+.step-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    color: var(--text-dark);
+}
+
+.step-card p {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+}
+
+.clarification-box {
+    background: linear-gradient(135deg, #E8F0FE 0%, #D4E4FC 100%);
+    border-radius: 20px;
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid var(--electric-blue);
+    margin-top: 32px;
+}
+
+.clarification-box i {
+    font-size: 2rem;
+    color: var(--electric-blue);
+}
+
+.clarification-box div {
+    color: var(--text-dark);
+    line-height: 1.5;
+}
+
+.clarification-box strong {
+    color: var(--electric-blue);
+}
+
+/* ============================================ */
+/* POR QUÉ ELEGIRNOS                            */
+/* ============================================ */
+.why-us {
+    padding: 80px 0;
+    background-color: var(--white);
+}
+
+.why-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 56px;
     align-items: center;
 }
 
-.promise-content h2 {
+.why-content h2 {
     font-size: 2.2rem;
     font-weight: 700;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
 }
 
-/* Cita textual de la marca */
-.promise-quote {
-    font-size: 1.3rem;
-    font-style: italic;
-    border-left: 4px solid var(--electric-blue);
-    padding-left: 24px;
-    margin: 28px 0;
-    color: var(--text-dark);
-    font-weight: 500;
-}
-
-/* Lista de ventajas con check azul */
-.features-list {
+.why-list {
     list-style: none;
-    margin-top: 24px;
+    margin-bottom: 32px;
 }
 
-.features-list li {
+.why-list li {
     margin-bottom: 16px;
     display: flex;
     align-items: center;
     gap: 12px;
-    font-weight: 500;
 }
 
-.features-list i {
+.why-list i {
     color: var(--electric-blue);
     font-size: 1.2rem;
 }
 
-.promise-image img {
+.testimonial-mini {
+    background-color: var(--gray-light);
+    border-radius: 20px;
+    padding: 24px;
+    margin-top: 32px;
+}
+
+.testimonial-mini i {
+    color: #FFB800;
+    margin-bottom: 12px;
+}
+
+.testimonial-mini p {
+    font-style: italic;
+    margin: 12px 0;
+    color: var(--text-dark);
+}
+
+.testimonial-mini span {
+    font-size: 0.8rem;
+    color: var(--text-gray);
+}
+
+.why-image img {
     width: 100%;
     border-radius: 24px;
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
 }
 
 /* ============================================ */
-/* CALL TO ACTION FINAL (FUNNEL)                */
+/* CTA FINAL - ETAPA 4: ACCIÓN                  */
 /* ============================================ */
 .cta-funnel {
     background-color: var(--black);
     color: var(--white);
-    padding: 70px 0;
+    padding: 80px 0;
     text-align: center;
 }
 
-/* Garantizar que el título sea blanco */
 .cta-funnel h2 {
-    font-size: 2.4rem;
+    font-size: 2.3rem;
     margin-bottom: 20px;
-    color: var(--white);
 }
 
-/* Garantizar que el párrafo sea gris claro (legible) */
 .cta-funnel p {
     max-width: 600px;
     margin: 0 auto 32px auto;
-    color: #CCCCCC;  /* Gris claro, buen contraste sobre fondo negro */
+    color: #CCCCCC;
     font-size: 1.1rem;
 }
 
-/* Asegurar que el botón del CTA tenga texto blanco */
-.cta-funnel .btn-primary {
-    color: var(--white);
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.cta-note {
+    font-size: 0.85rem !important;
+    color: #888 !important;
+    margin-top: 0 !important;
+}
+
+.cta-guarantee {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #333;
+}
+
+.cta-guarantee i {
+    font-size: 1.2rem;
+    color: var(--electric-blue);
+}
+
+.cta-guarantee span {
+    font-size: 0.85rem;
+    color: #888;
 }
 
 /* ============================================ */
-/* FOOTER CON REDES SOCIALES                    */
+/* FOOTER SIMPLIFICADO                          */
 /* ============================================ */
 .footer {
     padding: 48px 0 32px;
@@ -343,28 +598,27 @@ body {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 24px;
-    margin-bottom: 32px;
+    gap: 32px;
+    margin-bottom: 40px;
 }
 
-.footer-brand h3 {
-    font-size: 1.6rem;
-    font-weight: 700;
-}
-
-.footer-brand span {
-    color: var(--electric-blue);
+.footer-brand img {
+    max-width: 160px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 12px;
 }
 
 .footer-brand p {
     color: var(--text-gray);
-    margin-top: 4px;
+    font-size: 0.85rem;
+    margin: 0;
 }
 
-/* Iconos de redes sociales */
 .footer-social {
     display: flex;
-    gap: 24px;
+    gap: 20px;
 }
 
 .social-icon {
@@ -376,7 +630,7 @@ body {
     background-color: var(--gray-light);
     border-radius: 50%;
     color: var(--electric-blue);
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     transition: all 0.2s ease;
     text-decoration: none;
 }
@@ -394,22 +648,41 @@ body {
     border-top: 1px solid var(--gray-mid);
 }
 
+.footer-bottom p {
+    font-size: 0.8rem;
+    margin: 0;
+}
+
 /* ============================================ */
-/* BOTÓN FLOTANTE DE WHATSAPP                   */
+/* MEDIA QUERIES ACTUALIZADAS                   */
+/* ============================================ */
+@media (max-width: 600px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-social {
+        justify-content: center;
+    }
+}
+
+/* ============================================ */
+/* WHATSAPP FLOAT                               */
 /* ============================================ */
 .whatsapp-float {
     position: fixed;
     bottom: 28px;
     right: 28px;
     background-color: #25D366;
-    color: var(--white);
+    color: white;
     width: 60px;
     height: 60px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     transition: all 0.2s;
     z-index: 100;
@@ -421,40 +694,59 @@ body {
     background-color: #20b859;
 }
 
+.whatsapp-tooltip {
+    position: absolute;
+    right: 70px;
+    background-color: var(--black);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+}
+
+.whatsapp-float:hover .whatsapp-tooltip {
+    opacity: 1;
+}
+
 /* ============================================ */
-/* MEDIA QUERIES (RESPONSIVE)                   */
+/* MEDIA QUERIES                                */
 /* ============================================ */
-/* Tablets y pantallas medianas */
 @media (max-width: 900px) {
-    .hero-grid, .promise-grid {
+    .hero-grid, .why-grid {
         grid-template-columns: 1fr;
         gap: 40px;
     }
     
     .hero {
-        padding: 48px 0 32px;
+        padding: 40px 0 60px;
     }
     
     .hero-content h1 {
-        font-size: 2.4rem;
+        font-size: 2.2rem;
     }
     
     .nav {
         flex-direction: column;
-        gap: 16px;
     }
     
     .section-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     
-    .footer-content {
+    .steps-grid {
+        gap: 20px;
+    }
+    
+    .clarification-box {
         flex-direction: column;
         text-align: center;
     }
 }
 
-/* Móviles */
 @media (max-width: 600px) {
     .container {
         padding: 0 20px;
@@ -462,7 +754,6 @@ body {
     
     .nav-links {
         gap: 20px;
-        flex-wrap: wrap;
         justify-content: center;
     }
     
@@ -474,61 +765,49 @@ body {
         padding: 24px;
     }
     
-    .cta-funnel h2 {
-        font-size: 1.8rem;
+    .hero-buttons {
+        justify-content: center;
     }
     
-    .cta-funnel p {
-        font-size: 1rem;
-        padding: 0 16px;
+    .hero-features {
+        justify-content: center;
+    }
+    
+    .hero-trust {
+        justify-content: center;
+    }
+    
+    .cta-funnel h2 {
+        font-size: 1.6rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
     }
     
     .whatsapp-float {
         width: 50px;
         height: 50px;
-        font-size: 1.6rem;
+        font-size: 1.5rem;
         bottom: 20px;
         right: 20px;
     }
-}
-
-/* ============================================ */
-/* OPTIMIZACIÓN DEL LOGO (RESPONSIVE)           */
-/* ============================================ */
-
-/* Logo en formato imagen - responsive */
-.logo img {
-    max-width: 180px;      /* Tamaño máximo en desktop */
-    width: 100%;           /* Se adapta al contenedor */
-    height: auto;          /* Mantiene la proporción */
-    display: block;        /* Evita espacios extra */
-}
-
-/* Ajuste para tablets */
-@media (max-width: 900px) {
-    .logo img {
-        max-width: 150px;  /* Logo más pequeño en tablets */
+    
+    .whatsapp-tooltip {
+        display: none;
     }
-}
-
-/* Ajuste para móviles */
-@media (max-width: 600px) {
-    .logo img {
-        max-width: 130px;  /* Logo aún más pequeño en móviles */
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
     }
-}
-
-/* Logo en el footer - responsive */
-.footer-brand img {
-    max-width: 160px;
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;  /* Centrado en móviles */
-}
-
-@media (max-width: 600px) {
-    .footer-brand img {
-        max-width: 140px;
+    
+    .social-icons {
+        justify-content: center;
+    }
+    
+    .footer-flags {
+        justify-content: center;
     }
 }
