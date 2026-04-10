@@ -1,0 +1,534 @@
+/* ============================================ */
+/* VARIABLES GLOBALES (COLORES Y FUENTES)       */
+/* ============================================ */
+:root {
+    --electric-blue: #0052FF;      /* Azul eléctrico principal */
+    --electric-blue-dark: #0039B3;  /* Azul más oscuro para hover */
+    --black: #0A0A0A;               /* Negro puro para contraste */
+    --white: #FFFFFF;               /* Fondo blanco minimalista */
+    --gray-light: #F5F7FA;          /* Gris muy claro para secciones alternas */
+    --gray-mid: #E4E7EC;            /* Gris para bordes y separadores */
+    --text-dark: #1A1F36;           /* Color de texto principal */
+    --text-gray: #5A6A7F;           /* Color de texto secundario */
+}
+
+/* ============================================ */
+/* RESET Y ESTILOS BASE                         */
+/* ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--white);
+    color: var(--text-dark);
+    line-height: 1.5;
+    scroll-behavior: smooth;  /* Desplazamiento suave nativo */
+}
+
+/* ============================================ */
+/* CONTENEDOR PRINCIPAL (RESPONSIVE)            */
+/* ============================================ */
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ============================================ */
+/* BOTONES REUTILIZABLES                        */
+/* ============================================ */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 32px;
+    border-radius: 100px;      /* Bordes redondeados tipo pill */
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Botón primario (fondo azul eléctrico, texto blanco) */
+.btn-primary {
+    background-color: var(--electric-blue);
+    color: var(--white);
+    box-shadow: 0 2px 8px rgba(0, 82, 255, 0.2);
+}
+
+.btn-primary:hover {
+    background-color: var(--electric-blue-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 82, 255, 0.3);
+}
+
+/* Botón "Contáctanos" específico del header */
+/* Fondo completamente azul, texto blanco */
+.btn-outline {
+    background-color: var(--electric-blue);  /* Fondo azul */
+    border: none;                            /* Sin borde */
+    color: #FFFFFF !important;               /* Texto BLANCO forzado */
+    font-weight: 600;
+    transition: all 0.25s ease;
+}
+
+/* Animación suave al pasar el cursor sobre "Contáctanos" */
+.btn-outline:hover {
+    background-color: var(--electric-blue-dark);  /* Azul más oscuro */
+    transform: scale(1.05);                       /* Crece ligeramente */
+    box-shadow: 0 8px 20px rgba(0, 82, 255, 0.3); /* Sombra azul */
+    color: #FFFFFF !important;                    /* Mantiene texto blanco */
+}
+
+/* Botón grande para CTA principal */
+.btn-large {
+    padding: 16px 42px;
+    font-size: 1.1rem;
+}
+
+/* ============================================ */
+/* HEADER Y NAVEGACIÓN (STICKY)                 */
+/* ============================================ */
+.header {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--gray-mid);
+    background-color: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    backdrop-filter: blur(8px);    /* Efecto vidrio sutil */
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Enlaces del menú */
+.nav-links {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--electric-blue);
+}
+
+/* ============================================ */
+/* SECCIÓN HERO (PRIMERA IMPRESIÓN)             */
+/* ============================================ */
+.hero {
+    padding: 80px 0 64px;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+}
+
+.hero-content h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+}
+
+.hero-highlight {
+    color: var(--electric-blue);
+    border-bottom: 3px solid var(--electric-blue);
+}
+
+.hero-sub {
+    font-size: 1.2rem;
+    color: var(--text-gray);
+    margin-bottom: 32px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.hero-image img {
+    width: 100%;
+    border-radius: 24px;
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+    height: auto;
+}
+
+/* ============================================ */
+/* SECCIÓN SERVICIOS (TARJETAS)                 */
+/* ============================================ */
+.services {
+    padding: 80px 0;
+    background-color: var(--gray-light);  /* Fondo gris claro para diferenciar */
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.section-sub {
+    text-align: center;
+    color: var(--text-gray);
+    max-width: 640px;
+    margin: 0 auto 56px auto;
+    font-size: 1.1rem;
+}
+
+/* Grid responsivo de 3 columnas */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+}
+
+/* Tarjeta individual de servicio */
+.service-card {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+    border: 1px solid var(--gray-mid);
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 30px -12px rgba(0, 82, 255, 0.12);
+    border-color: var(--electric-blue);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    color: var(--electric-blue);
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.service-card p {
+    color: var(--text-gray);
+    margin-bottom: 20px;
+}
+
+/* ============================================ */
+/* SECCIÓN PROMESA (POR QUÉ ELEGIRNOS)          */
+/* ============================================ */
+.promise {
+    padding: 80px 0;
+}
+
+.promise-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+}
+
+.promise-content h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+/* Cita textual de la marca */
+.promise-quote {
+    font-size: 1.3rem;
+    font-style: italic;
+    border-left: 4px solid var(--electric-blue);
+    padding-left: 24px;
+    margin: 28px 0;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+/* Lista de ventajas con check azul */
+.features-list {
+    list-style: none;
+    margin-top: 24px;
+}
+
+.features-list li {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+}
+
+.features-list i {
+    color: var(--electric-blue);
+    font-size: 1.2rem;
+}
+
+.promise-image img {
+    width: 100%;
+    border-radius: 24px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================================ */
+/* CALL TO ACTION FINAL (FUNNEL)                */
+/* ============================================ */
+.cta-funnel {
+    background-color: var(--black);
+    color: var(--white);
+    padding: 70px 0;
+    text-align: center;
+}
+
+/* Garantizar que el título sea blanco */
+.cta-funnel h2 {
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+    color: var(--white);
+}
+
+/* Garantizar que el párrafo sea gris claro (legible) */
+.cta-funnel p {
+    max-width: 600px;
+    margin: 0 auto 32px auto;
+    color: #CCCCCC;  /* Gris claro, buen contraste sobre fondo negro */
+    font-size: 1.1rem;
+}
+
+/* Asegurar que el botón del CTA tenga texto blanco */
+.cta-funnel .btn-primary {
+    color: var(--white);
+}
+
+/* ============================================ */
+/* FOOTER CON REDES SOCIALES                    */
+/* ============================================ */
+.footer {
+    padding: 48px 0 32px;
+    border-top: 1px solid var(--gray-mid);
+    background-color: var(--white);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.footer-brand h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.footer-brand span {
+    color: var(--electric-blue);
+}
+
+.footer-brand p {
+    color: var(--text-gray);
+    margin-top: 4px;
+}
+
+/* Iconos de redes sociales */
+.footer-social {
+    display: flex;
+    gap: 24px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: var(--gray-light);
+    border-radius: 50%;
+    color: var(--electric-blue);
+    font-size: 1.3rem;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    background-color: var(--electric-blue);
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    color: var(--text-gray);
+    padding-top: 24px;
+    border-top: 1px solid var(--gray-mid);
+}
+
+/* ============================================ */
+/* BOTÓN FLOTANTE DE WHATSAPP                   */
+/* ============================================ */
+.whatsapp-float {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    background-color: #25D366;
+    color: var(--white);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s;
+    z-index: 100;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.08);
+    background-color: #20b859;
+}
+
+/* ============================================ */
+/* MEDIA QUERIES (RESPONSIVE)                   */
+/* ============================================ */
+/* Tablets y pantallas medianas */
+@media (max-width: 900px) {
+    .hero-grid, .promise-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .hero {
+        padding: 48px 0 32px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.4rem;
+    }
+    
+    .nav {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Móviles */
+@media (max-width: 600px) {
+    .container {
+        padding: 0 20px;
+    }
+    
+    .nav-links {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+    }
+    
+    .service-card {
+        padding: 24px;
+    }
+    
+    .cta-funnel h2 {
+        font-size: 1.8rem;
+    }
+    
+    .cta-funnel p {
+        font-size: 1rem;
+        padding: 0 16px;
+    }
+    
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 1.6rem;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* ============================================ */
+/* OPTIMIZACIÓN DEL LOGO (RESPONSIVE)           */
+/* ============================================ */
+
+/* Logo en formato imagen - responsive */
+.logo img {
+    max-width: 180px;      /* Tamaño máximo en desktop */
+    width: 100%;           /* Se adapta al contenedor */
+    height: auto;          /* Mantiene la proporción */
+    display: block;        /* Evita espacios extra */
+}
+
+/* Ajuste para tablets */
+@media (max-width: 900px) {
+    .logo img {
+        max-width: 150px;  /* Logo más pequeño en tablets */
+    }
+}
+
+/* Ajuste para móviles */
+@media (max-width: 600px) {
+    .logo img {
+        max-width: 130px;  /* Logo aún más pequeño en móviles */
+    }
+}
+
+/* Logo en el footer - responsive */
+.footer-brand img {
+    max-width: 160px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;  /* Centrado en móviles */
+}
+
+@media (max-width: 600px) {
+    .footer-brand img {
+        max-width: 140px;
+    }
+}
